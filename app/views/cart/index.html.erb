@@ -7,34 +7,48 @@
             <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z"/>
         </svg>Remove</span>
     </div>
-    <table class="w-full mt-8 font-poppins font-semibold text-zinc-400/90">
-        <tr class="text-left border-b-2 border-zinc-200 pb-10 mb-10">
+    <table class="w-full mt-8 font-poppins font-semibold text-zinc-400/90 border-separate border-spacing-y-3">
+        <tr class="text-left border-b-2 border-zinc-200">
             <th></th>
             <th>PRODUCT</th>
             <th class="text-center">QUANTITY</th>
             <th class="text-right">PRICE</th>
-        <th>
+        </tr>
+        <tbody class="mt-10">
         <% @cart_items.each do |cart_item| %>
-            <tr class="mb-2 font-normal text-zinc-600">
-                <td> <%= check_box_tag 'Checkbox', class: "w-4 h-4 text-indigo-600 bg-gray-100 border-gray-300 rounded focus:ring-indigo-500 "%> </td>
-                <td class="flex items-center">
+            <tr class="font-normal text-zinc-600">
+                <td> <%= check_box_tag 'Checkbox', class: "w-8 h-8 text-indigo-600 bg-gray-100 border-gray-300 rounded focus:ring-indigo-500"%> </td>
+                <td class="flex items-center font-poppins text-zinc-500 font-semibold">
                     <%= image_tag cart_item.product.image, class: "w-28 h-28 rounded-lg mr-4"%>
                     <%= cart_item.product.name %>
                 </td>
                 <td>
                     <div class="flex flex-col justify-center items-center">
-                        <%= cart_item.quantity %>
+                        <ul class="inline-flex -space-x-px text-sm w-full justify-center mb-2">
+                        <li>
+                        <a href="#" class="flex items-center justify-center px-3 h-8 ml-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-l-lg hover:bg-gray-100 hover:text-gray-700">-</a>
+                        </li>
+                        <li>
+                        <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700"><%= cart_item.quantity %></a>
+                        </li>
+                        <li>
+                        <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-r-lg hover:bg-gray-100 hover:text-gray-700">+</a>
+                        </li>
+                        </ul>
+                        <%= button_to cart_item_path(cart_item), method: :delete do %>
                         <div class="flex justify-center w-full">
-                            <span class="flex items-center gap-2">
+                            <span class="flex items-center gap-2 font-poppins text-sm text-zinc-400 hover:text-zinc-600 transition">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
                                 <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z"/>
                                 <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z"/>
                             </svg>Remove</span>
                         </div>
+                        <% end %>
                     </div>
                 </td>
                 <td class="text-right">$<%= cart_item.product.price *  cart_item.quantity%></td>
             </tr>
         <% end %>
+        </tbody>
     </table>
 </section>

@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   post 'shop', to: 'shop#update'
 
   # post 'cart_items', to: 'cart_items#create'
-  resources :cart_items, only: [:create]
+  resources :cart_items, only: [:create, :destroy]
 
-  resources :cart, only: [:index, :show]
+  resources :cart, only: [:index, :show, :destroy]
 end
