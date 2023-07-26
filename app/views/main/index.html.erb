@@ -1,1 +1,12 @@
-<h1 class="mt-10 font-sans font-bold text-3xl text-zinc-700">Main Page</h1>
+<div class="w-full flex items-center justify-center">
+    <img  class="w-11/12 max-w-screen-2xl" src="<%= asset_path('ecomm-web-main-page.png')%>">
+    <div class="absolute bottom-40 left-40 flex ">
+        <div>
+        <p class="font-poppins text-sky-950 font-light w-52 pb-5">Start building yout image, the way you want it.</p>
+        <%= link_to '/shop' do %>
+            <button class="py-4 px-9 bg-sky-950 font-poppins text-white hover:bg-sky-800 transition">Shop Now</button>
+        <% end %>
+        </div>
+        <img class="h-28 -ml-10" src="<%= asset_path('arrow-image.png')%>">
+    </div>
+</div>

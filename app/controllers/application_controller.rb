@@ -4,16 +4,17 @@ class ApplicationController < ActionController::Base
   private
 
   def init_user_shopping_session
-    if !session[:shopping_session_id] #If there is no session id stored in the cookies #then we create a new sessino
+    shopping_session = ShoppingSession.find_by_id(session[:shopping_session_id])
+    if shopping_session.nil?
       shopping_session = ShoppingSession.new({total: 0})
       if shopping_session.save
         session[:shopping_session_id] = shopping_session.id # stores session id in session hash
         redirect_to :main, notice: 'Successfully created a new shopping session.'
       else
-        redirect_to :main , notice: 'There was a problem, try again.'
+        pp "ERROR", shopping_session.errors.full_messages.to_sentence
+        redirect_to :main , notice: shopping_session.errors.full_messages.to_sentence
       end
     end
-
   end
 
 end

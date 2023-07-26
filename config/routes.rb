@@ -7,6 +7,10 @@ Rails.application.routes.draw do
   get 'shop', to: 'shop#index'
   post 'shop', to: 'shop#update'
 
+  post 'customer', to: 'customer#create'
+
+  get 'about', to: 'about#index'
+
   # post 'cart_items', to: 'cart_items#create'
   resources :cart_items, only: [:create, :destroy, :update]
 
