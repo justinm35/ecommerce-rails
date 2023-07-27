@@ -1,3 +1,3 @@
 class Customer < ApplicationRecord
-  has_one :shopping_session
+  belongs_to :shopping_session, optional: true
 end

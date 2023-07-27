@@ -1,9 +1,9 @@
-<h1 class="text-base font-medium">Send us your email</h1>
-
+<div class="w-full flex flex-col justify-center items-center font-poppins">
+<h1 class="text-base font-medium text-2xl pb-5">Send us your email</h1>
 <%= form_with url: 'customer' do |form| %>
-    <%= form.text_field :name, { placeholder: 'Name', class: "px-6 py-3.5 text-base font-medium rounded-lg" } %>
-    <%= form.text_field :email, { placeholder: 'Email', class: "px-6 py-3.5 text-base font-medium rounded-lg" } %>
-    <button class="px-6 py-3.5 text-base font-medium text-white bg-green-600 hover:bg-green-700 focus:ring-4 focus:outline-none focus:ring-green-300 rounded-lg text-center " >Confirm</button>
+    <%= form.text_field :name, { placeholder: 'Name', class: "px-6 py-3.5 text-base font-medium bg-transparent" } %>
+    <%= form.text_field :email, { placeholder: 'Email', class: "px-6 py-3.5 text-base font-medium bg-transparent" } %>
+    <button class="px-6 py-3.5 text-base font-medium text-white bg-sky-950 hover:bg-sky-900 focus:ring-4 focus:outline-none focus:ring-sky-300 text-center " >Confirm</button>
 <% end %>
-
+</div>
 

@@ -1,11 +1,11 @@
-    <nav class="flex justify-between bg-white text-sky-950 w-screen border-b-2">
+    <nav class="flex justify-between bg-[#d7d1cd] text-sky-950 w-screen ">
       <div class="px-5 xl:px-12 py-6 flex w-full items-center">
         <%= link_to 'CRS Packaging', 'main', class: 'text-3xl font-normal font-poppins font-heading text-sky-950 ' %>
         <!-- Nav Links -->
         <ul class="hidden md:flex px-4 mx-auto font-semibold font-heading space-x-12">
-          <li><a class="hover:text-gray-400 font-poppins font-normal" href="#">HOME</a></li>
+          <li><%=link_to 'HOME', 'main', class: 'hover:text-gray-400 font-poppins font-normal' %></li>
           <li><%=link_to 'SHOP', 'shop', class: 'hover:text-gray-400 font-poppins font-normal' %></li>
-          <li><a class="hover:text-gray-400 font-poppins font-normal" href="#">ABOUT US</a></li>
+          <li><%=link_to 'ABOUT US', 'about', class: 'hover:text-gray-400 font-poppins font-normal' %></li>
           <li><a class="hover:text-gray-400 font-poppins font-normal" href="#">CONTACT US</a></li>
         </ul>
         <!-- Header Icons -->

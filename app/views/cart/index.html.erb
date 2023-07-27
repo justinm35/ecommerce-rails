@@ -1,4 +1,4 @@
-<section class="py-10 pl-20">
+<section class="py-10 px-20">
     <div class="flex justify-between w-full">
         <h1 class='font-poppins text-3xl font-semibold text-zinc-600'>Cart</h1>
         <span class="flex items-center gap-2">
@@ -14,7 +14,7 @@
             <th class="text-center">QUANTITY</th>
             <th class="text-right">PRICE</th>
         </tr>
-        <tbody class="mt-10 border border-t-2 border-zinc-400">
+        <tbody class="mt-10  border border-t-2 border-zinc-400">
         <% @cart_items.each do |cart_item| %>
             <tr class="font-normal text-zinc-600">
                 <td> <%= check_box_tag 'Checkbox', class: "w-8 h-8 text-indigo-600 bg-gray-100 border-gray-300 rounded focus:ring-indigo-500"%> </td>
@@ -28,14 +28,14 @@
                     <%= form_with model: cart_item , method: :patch, html: { id: "quantity-form-#{cart_item.id}" } do |form| %>
                         <ul class="inline-flex -space-x-px text-sm w-full justify-center mb-2">
                         <li>
-                        <button type="button" class="decrement flex items-center justify-center px-3 h-8 ml-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-l-lg hover:bg-gray-100 hover:text-gray-700">
+                        <button type="button" class="decrement flex items-center justify-center px-3 h-8 ml-0 leading-tight text-gray-500 bg-transparent border border-sky-950 rounded-l-lg hover:bg-gray-200 hover:text-gray-700">
                         -</button>
                         </li>
                         <li>
-                        <%= form.number_field :quantity, {value: cart_item.quantity, id: "quantity-input-#{cart_item.id}", onchange: 'this.form.submit()', class: "quantity flex w-24 items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700"} %>
+                        <%= form.number_field :quantity, {value: cart_item.quantity, id: "quantity-input-#{cart_item.id}", onchange: 'this.form.submit()', class: "quantity flex w-24 items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-transparent border border-sky-950 over:bg-gray-200 hover:text-gray-700"} %>
                         </li>
                         <li>
-                        <button type="button" class="increment flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-r-lg hover:bg-gray-100 hover:text-gray-700">
+                        <button type="button" class="increment flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-transparent border border-sky-950 rounded-r-lg hover:bg-gray-200 hover:text-gray-700">
                         +</button>
                         </li>
                         </ul>
