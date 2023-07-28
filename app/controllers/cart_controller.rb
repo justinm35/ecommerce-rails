@@ -2,6 +2,9 @@ class CartController < ApplicationController
   def index
     shopping_session = ShoppingSession.find_by_id(session[:shopping_session_id])
     @cart_items = shopping_session.cart_items.all
+    @customer = shopping_session&.customer
+    pp "TeST CUSTOMER NAME"
+    pp @customer
   end
 
   def update

@@ -1,9 +1,15 @@
 <div class="w-full flex flex-col justify-center items-center font-poppins">
-<h1 class="text-base font-medium text-2xl pb-5">Send us your email</h1>
-<%= form_with url: 'customer' do |form| %>
-    <%= form.text_field :name, { placeholder: 'Name', class: "px-6 py-3.5 text-base font-medium bg-transparent" } %>
-    <%= form.text_field :email, { placeholder: 'Email', class: "px-6 py-3.5 text-base font-medium bg-transparent" } %>
-    <button class="px-6 py-3.5 text-base font-medium text-white bg-sky-950 hover:bg-sky-900 focus:ring-4 focus:outline-none focus:ring-sky-300 text-center " >Confirm</button>
+<%pp "HELLO", @customer%>
+<% if @customer.nil? %>
+    <h1 class="text-base font-medium text-2xl pb-5">Send us your email</h1>
+    <%= form_with url: 'customer' do |form| %>
+        <%= form.text_field :name, { placeholder: 'Name', class: "px-6 py-3.5 text-base font-medium bg-transparent" } %>
+        <%= form.text_field :email, { placeholder: 'Email', class: "px-6 py-3.5 text-base font-medium bg-transparent" } %>
+        <button class="px-6 py-3.5 text-base font-medium text-white bg-sky-950 hover:bg-sky-900 focus:ring-4 focus:outline-none focus:ring-sky-300 text-center " >Confirm</button>
+    <% end %>
+<% else %>
+    <h1 class="text-center font-medium text-2xl max-w-lg pb-5 text-zinc-700">Hi <span class="font-bold text-zinc-900"><%= @customer.name %></span>, our team is reaching out was we speak! You can expect an email soon at <span class="font-bold text-zinc-900" ><%= @customer.email %></span></h1>
 <% end %>
+
 </div>
 
